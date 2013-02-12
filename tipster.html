@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="A one-page app that calculates gratuity."
+    <meta http-equiv="author" content="Jack Whitis" />
+    <title>Tipster</title>
+    <link href="http://fonts.googleapis.com/css?family=Abel|Electrolize" type="text/css" rel="stylesheet" />
+    <link href="styles/tipster.css" type="text/css" rel="stylesheet" />
+    <script src="scripts/jquery-1.9.1.min.js"></script>
+    <script src="scripts/tipster.js"></script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <h1>Tipster</h1>
+      </header>
+      <form id="main-form" action="#">
+        <div class="form-fields">
+          <label for="check" class="title">Ticket Price:</label>
+          <p id="dollar-sign">$</p>
+          <input id="check" type="text" name="check" maxlength="7" value="" onchange="calculateTip();" />
+          <p id="error">x</p>
+        </div>
+        <div class="form-fields">
+          <label for="mood" class="title">Current Mood:</label>
+          <select id="mood" name="mood" onchange="calculateTip();">
+            <option value="hostile">hostile</option>
+            <option value="cranky">cranky</option>
+            <option value="default" selected="selected">default</option>
+            <option value="chipper">chipper</option>
+            <option value="generous">generous</option>
+          </select>
+        </div>
+        <div class="form-fields">
+          <label for="cute">Is your server really cute?</label>
+          <input id="cute" type="checkbox" name="cute" onchange="calculateTip();" />
+        </div>
+        <div class="form-fields">
+          <label for="tip" class="title">Suggested Tip:</label>
+          <input id="tip" class="readonly" type="text" name="tip" value="" readonly="readonly" />
+        </div>
+        <div class="form-fields">
+          <label for="total" class="title">Ticket + Tip:</label>
+          <input id="total" class="readonly" type="text" name="total" value="" readonly="readonly" />
+        </div>
+        <div id="settings-menu">
+          <p id="close-settings">x</p>
+          <label>
+            What is the least you would ever tip?<br />
+            <input type="radio" name="tipbase" checked="checked" onchange="calculateTip();" /> 10%
+            <input type="radio" name="tipbase" onchange="calculateTip();" /> 12.5%
+            <input type="radio" name="tipbase" onchange="calculateTip();" /> 15%
+          </label>
+        </div>
+      </form>
+      <footer>
+        <p id="open-settings">Settings</p>
+        <p>&copy;2013 Jack Whitis</p>
+      </footer>
+    </div><!-- end of #wrapper -->
+  </body>
+</html>
